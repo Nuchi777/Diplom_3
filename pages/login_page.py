@@ -1,7 +1,7 @@
 import allure
 
-from Locators.login_page_locators import LoginPageLocators
-from Pages.base_page import BasePage
+from locators.login_page_locators import LoginPageLocators
+from pages.base_page import BasePage
 
 
 class LoginPage(BasePage):
@@ -11,5 +11,5 @@ class LoginPage(BasePage):
         super().__init__(driver)
 
     @allure.step('Клик по кнопке "Восстановить пароль"')
-    def click_on_password_recovery_button(self):
-        self.element_is_visible(self.locators.TEXT_BUTTON_RECOVERY_PASSWORD).click()
+    def click_on_password_restore_button(self):
+        self.element_is_visible(self.locators.TEXT_BUTTON_RESTORE_PASSWORD).click()

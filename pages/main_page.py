@@ -1,6 +1,6 @@
 import allure
-from Locators.main_page_locators import MainPageLocators
-from Pages.base_page import BasePage
+from locators.main_page_locators import MainPageLocators
+from pages.base_page import BasePage
 
 
 class MainPage(BasePage):
@@ -12,4 +12,6 @@ class MainPage(BasePage):
     @allure.step('Клик по кнопке: ')
     def click_on_button(self, locator):
         self.element_is_visible(locator).click()
+
+
 

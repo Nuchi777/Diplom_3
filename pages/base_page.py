@@ -23,9 +23,10 @@ class BasePage:
     def scroll_to_element(self, locator):
         ActionChains(self.driver).scroll_to_element(locator).perform()
 
-    def get_current_url(self):
-        return self.driver.current_url
+    def get_current_url(self, url):
+        wait = WebDriverWait(self.driver, timeout=10).until(EC.url_to_be(url))
+        if wait is True:
+            return self.driver.current_url
 
     def switch_to_window(self, index_page):
         self.driver.switch_to.window(self.driver.window_handles[index_page])
-
