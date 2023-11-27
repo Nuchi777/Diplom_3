@@ -9,6 +9,7 @@ class MainPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    @allure.step('Клик по кнопке "Личный Кабинет" в шапке справа')
-    def click_on_personal_account_button(self):
-        self.element_is_visible(self.locators.BUTTON_PERSONAL_ACCOUNT).click()
+    @allure.step('Клик по кнопке: ')
+    def click_on_button(self, locator):
+        self.element_is_visible(locator).click()
+

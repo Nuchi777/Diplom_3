@@ -12,7 +12,7 @@ class BasePage:
 
     def element_is_visible(self, locator):
         self.scroll_to_element(self.element_is_presence(locator))
-        return WebDriverWait(locator, timeout=10).until(EC.visibility_of_element_located(locator))
+        return WebDriverWait(self.driver, timeout=10).until(EC.visibility_of_element_located(locator))
 
     def element_is_presence(self, locator):
         return WebDriverWait(self.driver, timeout=10).until(EC.presence_of_element_located(locator))

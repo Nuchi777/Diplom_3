@@ -1,10 +1,10 @@
 import allure
-from Locators.login_page_locators import LoginPageLocators
+from Locators.recovery_password_page_locators import RecoveryPasswordPageLocators
 from Pages.base_page import BasePage
 
 
-class LoginPage(BasePage):
-    locators = LoginPageLocators()
+class RecoveryPasswordPage(BasePage):
+    locators = RecoveryPasswordPageLocators()
 
     def __init__(self, driver):
         super().__init__(driver)
