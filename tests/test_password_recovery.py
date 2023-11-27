@@ -49,6 +49,6 @@ class TestPasswordRecovery:
         recovery_password_page.input_email_in_email_field()
         recovery_password_page.click_on_restore_button()
         recovery_password_page.click_on_show_or_hide_password_button()
-        recovery_password_page.check_show_or_hide_password_button()
+        recovery_password_page.check_show_or_hide_password_button_is_active()
 
 
