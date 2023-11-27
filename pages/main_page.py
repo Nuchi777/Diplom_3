@@ -14,4 +14,15 @@ class MainPage(BasePage):
         self.element_is_visible(locator).click()
 
 
+    @allure.step('Клик по кнопке "Личный Кабинет"')
+    def click_on_personal_account_button(self):
+        self.element_is_visible(self.locators.BUTTON_PERSONAL_ACCOUNT).click()
+
+
+    @allure.step('Клик по кнопке "Войти в аккаунт"')
+    def click_on_login_in_account_button(self):
+        self.element_is_visible(self.locators.BUTTON_ACCOUNT).click()
+
+
+
 

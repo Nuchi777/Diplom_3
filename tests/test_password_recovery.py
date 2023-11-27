@@ -1,8 +1,5 @@
-import time
-
 import allure
 import pytest
-
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.recovery_password_page import RecoveryPasswordPage
