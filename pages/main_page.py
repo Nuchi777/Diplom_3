@@ -23,6 +23,13 @@ class MainPage(BasePage):
     def click_on_login_in_account_button(self):
         self.element_is_visible(self.locators.BUTTON_ACCOUNT).click()
 
+    @allure.step('Клик по кнопке "Конструктор"')
+    def click_on_constructor_button(self):
+        self.element_is_visible(self.locators.BUTTON_CONSTRUCTOR).click()
+
+    @allure.step('Проверка, что заголовок "Соберите бургер" появился на экране')
+    def check_title_assemble_burger_is_displayed(self):
+        assert self.element_is_clickable(self.locators.TITLE_ASSEMBLE_BURGER).is_displayed()
 
 
 
