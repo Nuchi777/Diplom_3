@@ -1,3 +1,5 @@
+import time
+
 import allure
 from data import Urls
 from pages.main_page import MainPage
@@ -58,6 +60,21 @@ class TestMainFunctional:
         main_page.click_on_burger_ingredient()
         main_page.click_on_close_button_ingredient_pop_up_window()
         main_page.check_ingredient_pop_up_window_is_enabled()
+
+    @allure.title('Проверка, при добавлении ингредиента в заказ счётчик этого ингредиента увеличивается')
+    def test_add_ingredient_to_order_counter_for_ingredient_increases(self, driver, login):
+        main_page = MainPage(driver)
+        main_page.open(Urls.URL_SB)
+        main_page.click_on_login_in_account_button()
+        login_page = LoginPage(driver)
+        login_page.fill_email_field(login[0])
+        login_page.fill_password_field(login[1])
+        login_page.click_on_login_button()
+        main_page = MainPage(driver)
+        main_page.drag_ingredient_to_order()
+        main_page.drag_ingredient_to_order()
+        main_page.check_ingredient_counter_increases()
+
 
 
 

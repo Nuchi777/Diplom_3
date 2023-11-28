@@ -31,3 +31,9 @@ class BasePage:
     def switch_to_window(self, index_page):
         self.driver.switch_to.window(self.driver.window_handles[index_page])
 
+    def drag_and_drop_on_to_element(self, draggable_locator, droppable_locator):
+        self.scroll_to_element(self.element_is_presence(draggable_locator))
+        draggable = self.element_is_visible(draggable_locator)
+        droppable = self.element_is_visible(droppable_locator)
+        ActionChains(self.driver).drag_and_drop(draggable, droppable).perform()
+

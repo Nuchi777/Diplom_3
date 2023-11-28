@@ -1,4 +1,6 @@
 import allure
+from selenium.webdriver import ActionChains
+
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
 
@@ -54,4 +56,13 @@ class MainPage(BasePage):
     @allure.step('Проверка, что появилось всплывающее окно с "Детали ингредиента"')
     def check_ingredient_pop_up_window_is_enabled(self):
         assert self.element_is_visible(self.locators.POP_UP_WINDOW_INGR_DETAILS).is_enabled()
+
+    @allure.step('Перетащить ингредиент в заказ')
+    def drag_ingredient_to_order(self):
+        self.drag_and_drop_on_to_element(self.locators.BURGER_INGREDIENT, self.locators.BURGER_CONSTRUCTOR_BASKET)
+
+    @allure.step('Проверка, что счётчик ингредиента увеличивается')
+    def check_ingredient_counter_increases(self):
+        assert self.element_is_visible(self.locators.BURGER_COUNTER_INGREDIENT).text == '2'
+
 
