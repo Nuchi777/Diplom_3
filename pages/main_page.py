@@ -39,5 +39,19 @@ class MainPage(BasePage):
     def check_title_orders_line_is_displayed(self):
         assert self.element_is_visible(self.locators.TITLE_ORDERS_LINE).is_displayed()
 
+    @allure.step('Клик по ингредиенту для бургера')
+    def click_on_burger_ingredient(self):
+        self.element_is_visible(self.locators.BURGER_INGREDIENT).click()
 
+    @allure.step('Проверка, что появилось всплывающее окно с "Детали ингредиента"')
+    def check_ingredient_pop_up_window_is_displayed(self):
+        assert self.element_is_visible(self.locators.POP_UP_WINDOW_INGR_DETAILS).is_displayed()
+
+    @allure.step('Клик по кнопке "крестик" во всплывающем окне с "Детали ингредиента"')
+    def click_on_close_button_ingredient_pop_up_window(self):
+        self.element_is_visible(self.locators.CLOSE_BUTTON_POP_UP_WINDOW_INGR_DETAILS).click()
+
+    @allure.step('Проверка, что появилось всплывающее окно с "Детали ингредиента"')
+    def check_ingredient_pop_up_window_is_enabled(self):
+        assert self.element_is_visible(self.locators.POP_UP_WINDOW_INGR_DETAILS).is_enabled()
 
