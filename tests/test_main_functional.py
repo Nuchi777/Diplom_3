@@ -75,6 +75,21 @@ class TestMainFunctional:
         main_page.drag_ingredient_to_order()
         main_page.check_ingredient_counter_increases()
 
+    @allure.title('Проверка, залогиненный пользователь может оформить заказ')
+    def test_login_user_can_place_order(self, driver, login):
+        main_page = MainPage(driver)
+        main_page.open(Urls.URL_SB)
+        main_page.click_on_login_in_account_button()
+        login_page = LoginPage(driver)
+        login_page.fill_email_field(login[0])
+        login_page.fill_password_field(login[1])
+        login_page.click_on_login_button()
+        main_page = MainPage(driver)
+        main_page.drag_ingredient_to_order()
+        main_page.drag_ingredient_to_order()
+        main_page.click_on_checkout_button()
+        main_page.check_order_pop_up_window_is_displayed()
+
 
 
 

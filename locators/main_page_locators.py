@@ -17,3 +17,5 @@ class MainPageLocators:
     POP_UP_WINDOW_INGR_DETAILS = (By.XPATH, "//div[contains(@class, 'Modal_modal__container')]")  # Всплывающее окно с "деталями ингредиента"
     CLOSE_BUTTON_POP_UP_WINDOW_INGR_DETAILS = (By.XPATH, "(//button[@type='button'])[1]")   # кнопка "закрыть" всплывающее окно с "деталями ингредиента"
     BURGER_CONSTRUCTOR_BASKET = (By.XPATH, "//section[contains(@class, 'BurgerConstructor_basket')]") # корзина заказов
+    BUTTON_CHECKOUT = (By.XPATH, "//button[text()='Оформить заказ']")  # кнопка "Оформить заказ"
+    POP_UP_ORDER_WINDOW = (By.XPATH, "//div[@class='Modal_modal__container__Wo2l_']")# Всплывающее окно с "заказ оформлен"

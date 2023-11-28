@@ -65,4 +65,12 @@ class MainPage(BasePage):
     def check_ingredient_counter_increases(self):
         assert self.element_is_visible(self.locators.BURGER_COUNTER_INGREDIENT).text == '2'
 
+    @allure.step('Клик по кнопке "Оформить заказ"')
+    def click_on_checkout_button(self):
+        self.element_is_visible(self.locators.BUTTON_CHECKOUT).click()
+
+    @allure.step('Проверка, что появилось всплывающее окно с идентификатором заказа')
+    def check_order_pop_up_window_is_displayed(self):
+        assert self.element_is_visible(self.locators.POP_UP_ORDER_WINDOW).is_displayed()
+
 
