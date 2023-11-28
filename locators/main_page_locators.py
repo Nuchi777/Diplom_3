@@ -6,5 +6,7 @@ class MainPageLocators:
     BUTTON_PERSONAL_ACCOUNT = (By.LINK_TEXT, "Личный Кабинет")  # кнопка "Личный Кабинет"
     BUTTON_ACCOUNT = (By.XPATH, "//button[text()='Войти в аккаунт']")  # кнопка "Войти в аккаунт"
     BUTTON_CONSTRUCTOR = (By.XPATH, "//p[text()='Конструктор']")  # кнопка "Конструктор"
+    BUTTON_ORDERS_LINE = (By.XPATH, "//p[text()='Лента Заказов']")  # кнопка "Лента заказов"
     LOGO = (By.XPATH, "//div[@class='AppHeader_header__logo__2D0X2']")  # логотип "Stellar Burgers"
     TITLE_ASSEMBLE_BURGER = (By.XPATH, "//h1[text()='Соберите бургер']")  # заголовок "Собери бургер"
+    TITLE_ORDERS_LINE = (By.XPATH, "//h1[text()='Лента заказов']")  # заголовок "Лента заказов"

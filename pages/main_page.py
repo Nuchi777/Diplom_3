@@ -25,11 +25,19 @@ class MainPage(BasePage):
 
     @allure.step('Клик по кнопке "Конструктор"')
     def click_on_constructor_button(self):
-        self.element_is_visible(self.locators.BUTTON_CONSTRUCTOR).click()
+        self.element_is_clickable(self.locators.BUTTON_CONSTRUCTOR).click()
 
     @allure.step('Проверка, что заголовок "Соберите бургер" появился на экране')
     def check_title_assemble_burger_is_displayed(self):
-        assert self.element_is_clickable(self.locators.TITLE_ASSEMBLE_BURGER).is_displayed()
+        assert self.element_is_visible(self.locators.TITLE_ASSEMBLE_BURGER).is_displayed()
+
+    @allure.step('Клик по кнопке "Лента заказов"')
+    def click_on_orders_line_button(self):
+        self.element_is_clickable(self.locators.BUTTON_ORDERS_LINE).click()
+
+    @allure.step('Проверка, что заголовок "Лента заказов" появился на экране')
+    def check_title_orders_line_is_displayed(self):
+        assert self.element_is_visible(self.locators.TITLE_ORDERS_LINE).is_displayed()
 
 
 
