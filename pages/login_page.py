@@ -1,5 +1,5 @@
 import allure
-
+from selenium.webdriver.common.keys import Keys
 from locators.login_page_locators import LoginPageLocators
 from pages.base_page import BasePage
 
@@ -24,4 +24,5 @@ class LoginPage(BasePage):
 
     @allure.step('Клик по кнопке "Войти"')
     def click_on_login_button(self):
-        self.element_is_clickable(self.locators.BUTTON_LOGIN).click()
+        self.element_is_clickable(self.locators.BUTTON_LOGIN).send_keys(Keys.RETURN)
+
