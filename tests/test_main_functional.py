@@ -1,5 +1,4 @@
 import time
-
 import allure
 from data import Urls
 from pages.main_page import MainPage
@@ -88,7 +87,8 @@ class TestMainFunctional:
         main_page.drag_ingredient_to_order()
         main_page.drag_ingredient_to_order()
         main_page.click_on_checkout_button()
-        main_page.check_order_pop_up_window_is_displayed()
+        main_page.check_checkout_pop_up_window_is_displayed()
+
 
 
 

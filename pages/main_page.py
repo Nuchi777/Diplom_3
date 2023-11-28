@@ -1,6 +1,4 @@
 import allure
-from selenium.webdriver import ActionChains
-
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
 
@@ -70,7 +68,15 @@ class MainPage(BasePage):
         self.element_is_visible(self.locators.BUTTON_CHECKOUT).click()
 
     @allure.step('Проверка, что появилось всплывающее окно с идентификатором заказа')
-    def check_order_pop_up_window_is_displayed(self):
+    def check_checkout_pop_up_window_is_displayed(self):
         assert self.element_is_visible(self.locators.POP_UP_ORDER_WINDOW).is_displayed()
+
+    @allure.step('Клик по карточке заказа')
+    def click_on_order_card(self):
+        self.element_is_visible(self.locators.ORDER).click()
+
+    @allure.step('Проверка, что появилось всплывающее окно с деталями по заказу')
+    def check_order_pop_up_window_is_displayed(self):
+        assert self.element_is_visible(self.locators.POP_UP_DETAILS_ORDER_WINDOW).is_displayed()
 
 

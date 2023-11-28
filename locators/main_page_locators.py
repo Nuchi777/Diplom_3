@@ -19,3 +19,5 @@ class MainPageLocators:
     BURGER_CONSTRUCTOR_BASKET = (By.XPATH, "//section[contains(@class, 'BurgerConstructor_basket')]") # корзина заказов
     BUTTON_CHECKOUT = (By.XPATH, "//button[text()='Оформить заказ']")  # кнопка "Оформить заказ"
     POP_UP_ORDER_WINDOW = (By.XPATH, "//div[@class='Modal_modal__container__Wo2l_']")# Всплывающее окно с "заказ оформлен"
+    ORDER = (By.XPATH, "//li[contains(@class, 'OrderHistory_listItem')]") # заказ
+    POP_UP_DETAILS_ORDER_WINDOW = (By.XPATH, "(//div[contains(@class,'Modal_modal__contentBox')])[2]")# Всплывающее окно "детали заказа"
