@@ -1,5 +1,6 @@
 import allure
 from locators.main_page_locators import MainPageLocators
+from locators.account_page_locators import AccountPageLocators
 from pages.base_page import BasePage
 
 
@@ -79,4 +80,14 @@ class MainPage(BasePage):
     def check_order_pop_up_window_is_displayed(self):
         assert self.element_is_visible(self.locators.POP_UP_DETAILS_ORDER_WINDOW).is_displayed()
 
+    @allure.step('Клик по кнопке "крестик" во всплывающем окне с "Заказ оформлен"')
+    def click_on_close_button_order_pop_up_window(self):
+        self.element_is_visible(self.locators.CLOSE_BUTTON_POP_UP_WINDOW_DETAILS_ORDER).click()
+
+    @allure.step('Проверка, номера заказа в ленте заказов')
+    def check_number_orders_is_in_orders_line(self):
+        num_order_history = self.element_is_visible(AccountPageLocators.NUMBER_ORDER).text
+        self.click_on_orders_line_button()
+        num_order_line = self.element_is_visible(AccountPageLocators.NUMBER_ORDER).text
+        assert num_order_history == num_order_line
 

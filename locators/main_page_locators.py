@@ -22,3 +22,4 @@ class MainPageLocators:
     POP_UP_ORDER_WINDOW = (By.XPATH, "//div[@class='Modal_modal__container__Wo2l_']")# Всплывающее окно с "заказ оформлен"
     ORDER = (By.XPATH, "//li[contains(@class, 'OrderHistory_listItem')]") # заказ
     POP_UP_DETAILS_ORDER_WINDOW = (By.XPATH, "(//div[contains(@class,'Modal_modal__contentBox')])[2]")# Всплывающее окно "детали заказа"
+    CLOSE_BUTTON_POP_UP_WINDOW_DETAILS_ORDER = (By.XPATH, "//button[contains(@class, 'Modal_modal__close_modified')]")
