@@ -91,3 +91,11 @@ class MainPage(BasePage):
         num_order_line = self.element_is_visible(AccountPageLocators.NUMBER_ORDER).text
         assert num_order_history == num_order_line
 
+    @allure.step('Получить номер текущих заказов за все время')
+    def get_counter_order_completed_for_all_time(self):
+        count_orders = int(self.element_is_visible(self.locators.COUNT_ORDERS_ALL_TIME).text)
+        return count_orders
+
+
+
+

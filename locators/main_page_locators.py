@@ -23,3 +23,5 @@ class MainPageLocators:
     ORDER = (By.XPATH, "//li[contains(@class, 'OrderHistory_listItem')]") # заказ
     POP_UP_DETAILS_ORDER_WINDOW = (By.XPATH, "(//div[contains(@class,'Modal_modal__contentBox')])[2]")# Всплывающее окно "детали заказа"
     CLOSE_BUTTON_POP_UP_WINDOW_DETAILS_ORDER = (By.XPATH, "//button[contains(@class, 'Modal_modal__close_modified')]")
+    COUNT_ORDERS_ALL_TIME = (By.XPATH, '(//p[contains(@class, "OrderFeed_number")])[1]')
+    COUNT_ORDERS_TODAY = (By.XPATH, '(//p[contains(@class, "OrderFeed_number")])[2]')
