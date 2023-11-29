@@ -56,8 +56,8 @@ class MainPage(BasePage):
         assert self.element_is_visible(self.locators.POP_UP_WINDOW_INGR_DETAILS).is_enabled()
 
     @allure.step('Перетащить ингредиент в заказ')
-    def drag_ingredient_to_order(self):
-        self.drag_and_drop_on_to_element(self.locators.BURGER_INGREDIENT, self.locators.BURGER_CONSTRUCTOR_BASKET)
+    def drag_ingredient_to_order(self, draggable_locator):
+        self.drag_and_drop_on_to_element(draggable_locator, self.locators.BURGER_CONSTRUCTOR_BASKET)
 
     @allure.step('Проверка, что счётчик ингредиента увеличивается')
     def check_ingredient_counter_increases(self):

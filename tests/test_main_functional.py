@@ -1,8 +1,10 @@
 import time
 import allure
+import pytest
 from data import Urls
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
+from locators.main_page_locators import MainPageLocators
 
 
 class TestMainFunctional:
@@ -74,8 +76,9 @@ class TestMainFunctional:
         main_page.drag_ingredient_to_order()
         main_page.check_ingredient_counter_increases()
 
+    @pytest.mark.parametrize('ingredient_1, ingredient_2', [[MainPageLocators.BURGER_INGREDIENT_BUNS, MainPageLocators.BURGER_INGREDIENT_CUTLET]])
     @allure.title('Проверка, залогиненный пользователь может оформить заказ')
-    def test_login_user_can_place_order(self, driver, login):
+    def test_login_user_can_place_order(self, driver, login, ingredient_1, ingredient_2):
         main_page = MainPage(driver)
         main_page.open(Urls.URL_SB)
         main_page.click_on_login_in_account_button()
@@ -84,8 +87,8 @@ class TestMainFunctional:
         login_page.fill_password_field(login[1])
         login_page.click_on_login_button()
         main_page = MainPage(driver)
-        main_page.drag_ingredient_to_order()
-        main_page.drag_ingredient_to_order()
+        main_page.drag_ingredient_to_order(ingredient_1)
+        main_page.drag_ingredient_to_order(ingredient_2)
         main_page.click_on_checkout_button()
         main_page.check_checkout_pop_up_window_is_displayed()
 
