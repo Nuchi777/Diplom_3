@@ -14,11 +14,9 @@ class MainPage(BasePage):
     def click_on_button(self, locator):
         self.element_is_visible(locator).click()
 
-
     @allure.step('Клик по кнопке "Личный Кабинет"')
     def click_on_personal_account_button(self):
         self.element_is_visible(self.locators.BUTTON_PERSONAL_ACCOUNT).click()
-
 
     @allure.step('Клик по кнопке "Войти в аккаунт"')
     def click_on_login_in_account_button(self):
@@ -91,7 +89,24 @@ class MainPage(BasePage):
         num_order_line = self.element_is_visible(AccountPageLocators.NUMBER_ORDER).text
         assert num_order_history == num_order_line
 
-    @allure.step('Получить номер текущих заказов')
+    @allure.step('Получить количество текущих заказов')
     def get_counter_order_completed(self, counter_locator):
         count_orders = int(self.element_is_visible(counter_locator).text)
         return count_orders
+
+    # @allure.step('Проверка, номера заказа в разделе "в работе"')
+    # def check_number_orders_is_in_progress_section(self):
+    #     num_order_pop_up = self.element_is_visible(MainPageLocators.NUMBER_ORDER_POP_UP).text
+    #     self.click_on_orders_line_button()
+    #     num_order_line = self.element_is_visible(MainPageLocators.NUMBER_ORDER_IN_PROGRESS).text
+    #     assert num_order_pop_up == num_order_line
+
+    @allure.step('Получить номер текущего заказа во всплывающем окне')
+    def get_number_order_pop_up_window(self):
+        number_order = int(self.element_is_visible(self.locators.NUMBER_ORDER_POP_UP).text)
+        return number_order
+
+    @allure.step('Получить номер текущего заказа "в работе"')
+    def get_number_order_in_progress(self):
+        number_order = int(self.element_is_visible(self.locators.NUMBER_ORDER_IN_PROGRESS).text)
+        return number_order

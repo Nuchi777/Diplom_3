@@ -25,3 +25,5 @@ class MainPageLocators:
     CLOSE_BUTTON_POP_UP_WINDOW_DETAILS_ORDER = (By.XPATH, "//button[contains(@class, 'Modal_modal__close_modified')]")
     COUNT_ORDERS_ALL_TIME = (By.XPATH, '(//p[contains(@class, "OrderFeed_number")])[1]')
     COUNT_ORDERS_TODAY = (By.XPATH, '(//p[contains(@class, "OrderFeed_number")])[2]')
+    NUMBER_ORDER_POP_UP = (By.XPATH, '//h2[contains(@class, "Modal_modal__title_shadow")]')
+    NUMBER_ORDER_IN_PROGRESS = (By.XPATH, '//ul[contains(@class,"OrderFeed_orderListReady")]/li[contains(@class, "text_type_digits")]')
