@@ -45,9 +45,11 @@ class TestOrdersLine:
         main_page = MainPage(driver)
         main_page.check_number_orders_is_in_orders_line()
 
-    @pytest.mark.parametrize('ingredient_1, ingredient_2', [[MainPageLocators.BURGER_INGREDIENT_BUNS, MainPageLocators.BURGER_INGREDIENT_CUTLET]])
-    @allure.title('Проверка, при создании нового заказа счётчик "Выполнено за всё время" увеличивается')
-    def test_when_creating_new_order_completed_for_all_time_counter_increases(self, driver, login, ingredient_1, ingredient_2):
+    @pytest.mark.parametrize('ingredient_1, ingredient_2, counter_orders', [
+        [MainPageLocators.BURGER_INGREDIENT_BUNS, MainPageLocators.BURGER_INGREDIENT_CUTLET, MainPageLocators.COUNT_ORDERS_ALL_TIME],
+        [MainPageLocators.BURGER_INGREDIENT_BUNS, MainPageLocators.BURGER_INGREDIENT_CUTLET, MainPageLocators.COUNT_ORDERS_TODAY]])
+    @allure.title('Проверка, при создании нового заказа счётчик "Выполнено за сегодня " увеличивается')
+    def test_when_creating_new_order_counter_increases(self, driver, login, ingredient_1, ingredient_2, counter_orders):
         main_page = MainPage(driver)
         main_page.open(Urls.URL_SB)
         main_page.click_on_login_in_account_button()
@@ -57,14 +59,13 @@ class TestOrdersLine:
         login_page.click_on_login_button()
         main_page = MainPage(driver)
         main_page.click_on_orders_line_button()
-        count_orders_before = main_page.get_counter_order_completed_for_all_time()
+        count_orders_before = main_page.get_counter_order_completed(counter_orders)
         main_page.click_on_constructor_button()
         main_page.drag_ingredient_to_order(ingredient_1)
         main_page.drag_ingredient_to_order(ingredient_2)
         main_page.click_on_checkout_button()
         main_page.click_on_close_button_order_pop_up_window()
         main_page.click_on_orders_line_button()
-        count_orders_after = main_page.get_counter_order_completed_for_all_time()
+        count_orders_after = main_page.get_counter_order_completed(counter_orders)
         assert count_orders_before == count_orders_after - 1
-
 
