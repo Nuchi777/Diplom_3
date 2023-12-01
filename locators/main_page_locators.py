@@ -12,8 +12,9 @@ class MainPageLocators:
     LOGO = (By.XPATH, "//div[@class='AppHeader_header__logo__2D0X2']")  # логотип "Stellar Burgers"
     TITLE_ASSEMBLE_BURGER = (By.XPATH, "//h1[text()='Соберите бургер']")  # заголовок "Собери бургер"
     TITLE_ORDERS_LINE = (By.XPATH, "//h1[text()='Лента заказов']")  # заголовок "Лента заказов"
-    BURGER_INGREDIENT_BUNS = (By.XPATH, f"(//a[contains(@class, 'BurgerIngredient_ingredient')])[1]")  # заголовок "Лента заказов"
-    BURGER_INGREDIENT_CUTLET = (By.XPATH, f"(//a[contains(@class, 'BurgerIngredient_ingredient')])[7]")
+    BURGER_INGREDIENT = (By.XPATH, f"(//a[contains(@class, 'BurgerIngredient_ingredient')])[{randint(1,15)}]")
+    BURGER_INGREDIENT_BUNS = (By.XPATH, "(//a[contains(@class, 'BurgerIngredient_ingredient')])[1]")  # заголовок "Лента заказов"
+    BURGER_INGREDIENT_CUTLET = (By.XPATH, "(//a[contains(@class, 'BurgerIngredient_ingredient')])[7]")
     BURGER_COUNTER_INGREDIENT = (By.XPATH, "(//p[contains(@class, 'counter__num')])[7]")
     POP_UP_WINDOW_INGR_DETAILS = (By.XPATH, "//div[contains(@class, 'Modal_modal__container')]")  # Всплывающее окно с "деталями ингредиента"
     CLOSE_BUTTON_POP_UP_WINDOW_INGR_DETAILS = (By.XPATH, "(//button[@type='button'])[1]")   # кнопка "закрыть" всплывающее окно с "деталями ингредиента"

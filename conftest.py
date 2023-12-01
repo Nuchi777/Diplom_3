@@ -9,23 +9,17 @@ from register_new_user import register_new_user_return_login_pass_and_response
 from data import Urls, Endpoints
 
 
-@pytest.fixture
-def driver():
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+
+@pytest.fixture(params=['chrome', 'firefox'])
+def driver(request):
+    driver = webdriver
+    if request.param == 'chrome':
+        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    if request.param == 'firefox':
+        driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
     driver.maximize_window()
     yield driver
     driver.quit()
-
-# @pytest.fixture(params=['chrome', 'firefox'])
-# def driver(request):
-#     driver = webdriver
-#     if request.param == 'chrome':
-#         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-#     if request.param == 'firefox':
-#         driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
-#     driver.maximize_window()
-#     yield driver
-#     driver.quit()
 
 
 @pytest.fixture
