@@ -6,9 +6,6 @@ from pages.base_page import BasePage
 class AccountPage(BasePage):
     locators = AccountPageLocators()
 
-    def __init__(self, driver):
-        super().__init__(driver)
-
     @allure.step('Проверка, что кнопка "Выход" появилась на экране')
     def check_logout_button_is_displayed(self):
         assert self.element_is_clickable(self.locators.TEXT_BUTTON_LOGOUT).is_displayed()

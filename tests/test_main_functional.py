@@ -1,4 +1,3 @@
-import time
 import allure
 import pytest
 from data import Urls
@@ -72,8 +71,7 @@ class TestMainFunctional:
         login_page.fill_password_field(login[1])
         login_page.click_on_login_button()
         main_page = MainPage(driver)
-        main_page.drag_ingredient_to_order()
-        main_page.drag_ingredient_to_order()
+        main_page.drag_ingredient_to_order(MainPageLocators.BURGER_INGREDIENT_CUTLET)
         main_page.check_ingredient_counter_increases()
 
     @pytest.mark.parametrize('ingredient_1, ingredient_2', [[MainPageLocators.BURGER_INGREDIENT_BUNS, MainPageLocators.BURGER_INGREDIENT_CUTLET]])

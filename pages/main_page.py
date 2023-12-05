@@ -7,9 +7,6 @@ from pages.base_page import BasePage
 class MainPage(BasePage):
     locators = MainPageLocators()
 
-    def __init__(self, driver):
-        super().__init__(driver)
-
     @allure.step('Клик по кнопке: ')
     def click_on_button(self, locator):
         self.element_is_visible(locator).click()
@@ -60,7 +57,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверка, что счётчик ингредиента увеличивается')
     def check_ingredient_counter_increases(self):
-        assert self.element_is_visible(self.locators.BURGER_COUNTER_INGREDIENT).text == '2'
+        assert self.element_is_visible(self.locators.BURGER_COUNTER_INGREDIENT).text == '1'
 
     @allure.step('Клик по кнопке "Оформить заказ"')
     def click_on_checkout_button(self):

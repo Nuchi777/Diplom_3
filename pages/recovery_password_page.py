@@ -9,9 +9,6 @@ faker = Faker()
 class RecoveryPasswordPage(BasePage):
     locators = RecoveryPasswordPageLocators()
 
-    def __init__(self, driver):
-        super().__init__(driver)
-
     @allure.step('Ввод email в поле "email"')
     def input_email_in_email_field(self):
         self.element_is_visible(self.locators.EMAIL).send_keys(faker.free_email())
