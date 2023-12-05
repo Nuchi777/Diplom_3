@@ -29,3 +29,7 @@ class LoginPage(BasePage):
     def click_on_login_button(self):
         self.element_is_clickable(self.locators.BUTTON_LOGIN).send_keys(Keys.RETURN)
 
+    @allure.step('Проверка, что кнопка "Войти" появилась на экране')
+    def check_login_button_is_displayed(self):
+        assert self.element_is_clickable(self.locators.BUTTON_LOGIN).is_displayed()
+

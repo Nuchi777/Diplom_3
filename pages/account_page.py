@@ -17,3 +17,7 @@ class AccountPage(BasePage):
     @allure.step('Клик по кнопке "Выход"')
     def click_on_logout_button(self):
         self.element_is_clickable(self.locators.TEXT_BUTTON_LOGOUT).click()
+
+    @allure.step('Проверка, что история заказов появилась на экране')
+    def check_order_history_list_is_displayed(self):
+        assert self.element_is_visible(self.locators.ORDER_HISTORY_LIST).is_displayed()

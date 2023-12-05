@@ -1,3 +1,5 @@
+import time
+
 import allure
 from data import Urls
 from pages.main_page import MainPage
@@ -30,9 +32,7 @@ class TestPersonalAccount:
         main_page.click_on_personal_account_button()
         account_page = AccountPage(driver)
         account_page.click_on_history_orders_button()
-        current_url = account_page.get_current_url(
-            'https://stellarburgers.nomoreparties.site/account/order-history')
-        assert current_url == 'https://stellarburgers.nomoreparties.site/account/order-history'
+        account_page.check_order_history_list_is_displayed()
 
     @allure.title('Проверка выхода из аккаунта')
     def test_exit_from_account(self, driver, login):
@@ -46,9 +46,8 @@ class TestPersonalAccount:
         account_page = AccountPage(driver)
         account_page.click_on_logout_button()
         login_page = LoginPage(driver)
-        current_url = login_page.get_current_url(
-            'https://stellarburgers.nomoreparties.site/login')
-        assert current_url == 'https://stellarburgers.nomoreparties.site/login'
+        login_page.check_login_button_is_displayed()
+
 
 
 
