@@ -1,4 +1,3 @@
-import time
 import allure
 import pytest
 from data import Urls
@@ -16,9 +15,7 @@ class TestOrdersLine:
         main_page.open(Urls.URL_SB)
         main_page.click_on_login_in_account_button()
         login_page = LoginPage(driver)
-        login_page.fill_email_field(login[0])
-        login_page.fill_password_field(login[1])
-        login_page.click_on_login_button()
+        login_page.login_user(login[0], login[1])
         main_page = MainPage(driver)
         main_page.click_on_orders_line_button()
         main_page.click_on_order_card()
@@ -31,9 +28,7 @@ class TestOrdersLine:
         main_page.open(Urls.URL_SB)
         main_page.click_on_login_in_account_button()
         login_page = LoginPage(driver)
-        login_page.fill_email_field(login[0])
-        login_page.fill_password_field(login[1])
-        login_page.click_on_login_button()
+        login_page.login_user(login[0], login[1])
         main_page = MainPage(driver)
         main_page.drag_ingredient_to_order(ingredient_1)
         main_page.drag_ingredient_to_order(ingredient_2)
@@ -54,9 +49,7 @@ class TestOrdersLine:
         main_page.open(Urls.URL_SB)
         main_page.click_on_login_in_account_button()
         login_page = LoginPage(driver)
-        login_page.fill_email_field(login[0])
-        login_page.fill_password_field(login[1])
-        login_page.click_on_login_button()
+        login_page.login_user(login[0], login[1])
         main_page = MainPage(driver)
         main_page.click_on_orders_line_button()
         count_orders_before = main_page.get_counter_order_completed(counter_orders)
@@ -77,9 +70,7 @@ class TestOrdersLine:
         main_page.open(Urls.URL_SB)
         main_page.click_on_login_in_account_button()
         login_page = LoginPage(driver)
-        login_page.fill_email_field(login[0])
-        login_page.fill_password_field(login[1])
-        login_page.click_on_login_button()
+        login_page.login_user(login[0], login[1])
         main_page = MainPage(driver)
         main_page.drag_ingredient_to_order(ingredient_1)
         main_page.drag_ingredient_to_order(ingredient_2)
