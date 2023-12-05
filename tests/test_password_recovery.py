@@ -1,3 +1,5 @@
+import time
+
 import allure
 import pytest
 from pages.main_page import MainPage
@@ -17,8 +19,7 @@ class TestPasswordRecovery:
         login_page = LoginPage(driver)
         login_page.click_on_password_restore_button()
         recovery_password_page = RecoveryPasswordPage(driver)
-        current_url = recovery_password_page.get_current_url('https://stellarburgers.nomoreparties.site/forgot-password')
-        assert current_url == 'https://stellarburgers.nomoreparties.site/forgot-password'
+        recovery_password_page.check_restore_button_is_displayed()
 
     @pytest.mark.parametrize('button_locator', [MainPageLocators.BUTTON_ACCOUNT, MainPageLocators.BUTTON_PERSONAL_ACCOUNT])
     @allure.title('Проверка ввода почты и клик по кнопке «Восстановить»')
@@ -31,8 +32,7 @@ class TestPasswordRecovery:
         recovery_password_page = RecoveryPasswordPage(driver)
         recovery_password_page.input_email_in_email_field()
         recovery_password_page.click_on_restore_button()
-        current_url = recovery_password_page.get_current_url('https://stellarburgers.nomoreparties.site/reset-password')
-        assert current_url == 'https://stellarburgers.nomoreparties.site/reset-password'
+        recovery_password_page.check_save_button_is_displayed()
 
     @pytest.mark.parametrize('button_locator', [MainPageLocators.BUTTON_ACCOUNT, MainPageLocators.BUTTON_PERSONAL_ACCOUNT])
     @allure.title('Проверка клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его')

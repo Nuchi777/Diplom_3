@@ -8,3 +8,4 @@ class RecoveryPasswordPageLocators:
     BUTTON_SHOW_OR_HIDE_PASSWORD = (By.XPATH, '//div[@class="input__icon input__icon-action"]') # кнопка "показать/скрыть пароль"
     PASSWORD_FIELD_DEFAULT = (By.XPATH, '//input[@type="password"]')
     PASSWORD_FIELD_ACTIVE = (By.XPATH, '//input[@type="text"]')
+    BUTTON_SAVE = (By.XPATH, '//button[text()="Сохранить"]') # кнопка "Сохранить"

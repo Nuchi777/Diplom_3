@@ -24,3 +24,12 @@ class RecoveryPasswordPage(BasePage):
     @allure.step('Проверка активации кнопки "показать/скрыть пароль"')
     def check_show_or_hide_password_button_is_active(self):
         assert self.element_is_presence(self.locators.PASSWORD_FIELD_ACTIVE)
+
+    @allure.step('Проверка, что кнопка "Восстановить" появилась на экране')
+    def check_restore_button_is_displayed(self):
+        assert self.element_is_visible(self.locators.BUTTON_RESTORE).is_displayed()
+
+    @allure.step('Проверка, что кнопка "Сохранить" появилась на экране')
+    def check_save_button_is_displayed(self):
+        assert self.element_is_visible(self.locators.BUTTON_SAVE).is_displayed()
+
